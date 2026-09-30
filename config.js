@@ -5,43 +5,44 @@ const SITE = {
   dateISO: "2027-05-22T10:00:00-05:00",
   dateLabel: "Saturday, May 22, 2027",
   city: "Kansas City, Missouri",
-  hashtag: "{{HASHTAG}}",
+  hashtag: "#deerqueen",
 
   story: [
-    "{{HOW_WE_MET}}",
-    "{{FIRST_DATE_OR_EARLY_MEMORY}}",
+    "Met at retreat blah blah blah",
+    "First date went to the Roasterie downtown and the WW1 Memorial",
     "{{THE_PROPOSAL_STORY}}"
   ],
 
   events: [
-    { when: "Friday, May 21 · {{REHEARSAL_TIME}}", title: "Rehearsal and dinner", place: "{{REHEARSAL_DINNER_VENUE}}", address: "{{REHEARSAL_DINNER_ADDRESS}}", note: "Wedding party and immediate family. {{DINNER_INVITE_DETAILS}}" },
-    { when: "Saturday, May 22 · 10:00 AM", title: "Ceremony", place: "Old St. Patrick's Oratory", address: "Kansas City, Missouri", map: "Old St. Patrick's Oratory Kansas City", note: "{{CEREMONY_ARRIVAL_AND_PARKING_NOTES}}", main: true },
-    { when: "Saturday, May 22 · {{RECEPTION_START_TIME}}", title: "Reception", place: "Meadowbrook Park", address: "Kansas City", map: "Meadowbrook Park Kansas City", note: "{{RECEPTION_DETAILS_FOOD_DANCING_END_TIME}}" }
+    { when: "Friday, May 21 · 4:00 PM", title: "Rehearsal and dinner", place: "Old St. Patrick's Oratory + Christus Rex Center", address: "Kansas City, Missouri", map: "Old St. Patrick's Oratory Kansas City", note: "Wedding party and immediate family. {{DINNER_INVITE_DETAILS}}" },
+    { when: "Saturday, May 22 · 11:00 AM", title: "Ceremony", place: "Old St. Patrick's Oratory", address: "Kansas City, Missouri", map: "Old St. Patrick's Oratory Kansas City", note: "{{CEREMONY_ARRIVAL_AND_PARKING_NOTES}}", main: true },
+    { when: "Saturday, May 22 · 12:30 PM", title: "Reception", place: "Meadowbrook Park", address: "Kansas City", map: "Meadowbrook Park Kansas City", note: "{{RECEPTION_DETAILS_FOOD_DANCING_END_TIME}}" }
   ],
 
   party: [
     { name: "{{BEST_MAN_NAME}}", role: "Best Man", side: "Daniel", bio: "{{ONE_LINE_BIO}}" },
     { name: "{{GROOMSMAN_1_NAME}}", role: "Groomsman", side: "Daniel", bio: "{{ONE_LINE_BIO}}" },
     { name: "{{GROOMSMAN_2_NAME}}", role: "Groomsman", side: "Daniel", bio: "{{ONE_LINE_BIO}}" },
+    { name: "{{GROOMSMAN_2_NAME}}", role: "Groomsman", side: "Daniel", bio: "{{ONE_LINE_BIO}}" },
+    { name: "{{GROOMSMAN_2_NAME}}", role: "Groomsman", side: "Daniel", bio: "{{ONE_LINE_BIO}}" },
     { name: "{{MAID_OF_HONOR_NAME}}", role: "Maid of Honor", side: "Maria", bio: "{{ONE_LINE_BIO}}" },
+    { name: "{{BRIDESMAID_1_NAME}}", role: "Bridesmaid", side: "Maria", bio: "{{ONE_LINE_BIO}}" },
+    { name: "{{BRIDESMAID_1_NAME}}", role: "Bridesmaid", side: "Maria", bio: "{{ONE_LINE_BIO}}" },
     { name: "{{BRIDESMAID_1_NAME}}", role: "Bridesmaid", side: "Maria", bio: "{{ONE_LINE_BIO}}" },
     { name: "{{BRIDESMAID_2_NAME}}", role: "Bridesmaid", side: "Maria", bio: "{{ONE_LINE_BIO}}" }
   ],
 
   travel: [
-    { title: "Getting there", text: "{{NEAREST_AIRPORT_AND_DRIVING_NOTES}}" },
+    { title: "Getting there", text: "MCI Airport is 18 miles (~25 minutes from the church" },
     { title: "Where to stay", text: "{{HOTEL_NAME_BLOCK_CODE_AND_BOOKING_DEADLINE}}", url: "{{HOTEL_BOOKING_URL}}", link: "Book a room" },
     { title: "Parking", text: "{{PARKING_AT_CHURCH_AND_PARK}}" }
   ],
 
   faqs: [
     { q: "What should I wear?", a: "{{DRESS_CODE_AND_OUTDOOR_RECEPTION_NOTES}}" },
-    { q: "Are children welcome?", a: "{{KIDS_POLICY}}" },
     { q: "Can I bring a guest?", a: "{{PLUS_ONE_POLICY}}" },
-    { q: "Is there a shuttle between the church and the reception?", a: "{{TRANSPORTATION_INFO}}" },
-    { q: "What if it rains?", a: "{{WEATHER_BACKUP_PLAN}}" },
-    { q: "Will there be an unplugged ceremony?", a: "{{PHOTO_POLICY}}" },
-    { q: "Dietary restrictions?", a: "Tell us in your RSVP and we'll make sure you're covered." }
+    { q: "Can I use my phone to take pictures?", a: "{{PHOTO_POLICY}}" },
+    { q: "What if I have any dietary restrictions?", a: "Tell us in your RSVP and we'll make sure you're covered." }
   ],
 
   registry: [
