@@ -14,34 +14,34 @@ const SITE = {
   ],
 
   party: [
-    { name: "{{BEST_MAN_NAME}}", role: "Best Man", side: "Daniel", bio: "{{ONE_LINE_BIO}}" },
-    { name: "{{GROOMSMAN_2_NAME}}", role: "Groomsman", side: "Daniel", bio: "{{ONE_LINE_BIO}}" },
-    { name: "{{GROOMSMAN_3_NAME}}", role: "Groomsman", side: "Daniel", bio: "{{ONE_LINE_BIO}}" },
-    { name: "{{GROOMSMAN_4_NAME}}", role: "Groomsman", side: "Daniel", bio: "{{ONE_LINE_BIO}}" },
-    { name: "{{GROOMSMAN_5_NAME}}", role: "Groomsman", side: "Daniel", bio: "{{ONE_LINE_BIO}}" },
-    { name: "{{MAID_OF_HONOR_NAME}}", role: "Maid of Honor", side: "Maria", bio: "{{ONE_LINE_BIO}}" },
-    { name: "{{BRIDESMAID_2_NAME}}", role: "Bridesmaid", side: "Maria", bio: "{{ONE_LINE_BIO}}" },
-    { name: "{{BRIDESMAID_3_NAME}}", role: "Bridesmaid", side: "Maria", bio: "{{ONE_LINE_BIO}}" },
-    { name: "{{BRIDESMAID_4_NAME}}", role: "Bridesmaid", side: "Maria", bio: "{{ONE_LINE_BIO}}" },
-    { name: "{{BRIDESMAID_5_NAME}}", role: "Bridesmaid", side: "Maria", bio: "{{ONE_LINE_BIO}}" }
+    { name: "{{BEST_MAN_NAME}}", role: "Best Man", side: "Daniel", bio: "Friend of the groom" },
+    { name: "{{GROOMSMAN_2_NAME}}", role: "Groomsman", side: "Daniel", bio: "Friend of the groom" },
+    { name: "{{GROOMSMAN_3_NAME}}", role: "Groomsman", side: "Daniel", bio: "Friend of the groom" },
+    { name: "{{GROOMSMAN_4_NAME}}", role: "Groomsman", side: "Daniel", bio: "Friend of the groom" },
+    { name: "{{GROOMSMAN_5_NAME}}", role: "Groomsman", side: "Daniel", bio: "Friend of the groom" },
+    { name: "{{MAID_OF_HONOR_NAME}}", role: "Maid of Honor", side: "Maria", bio: "Friend of the bride" },
+    { name: "{{BRIDESMAID_2_NAME}}", role: "Bridesmaid", side: "Maria", bio: "Sister of the bride" },
+    { name: "{{BRIDESMAID_3_NAME}}", role: "Bridesmaid", side: "Maria", bio: "Sister of the bride" },
+    { name: "{{BRIDESMAID_4_NAME}}", role: "Bridesmaid", side: "Maria", bio: "Sister of the bride" },
+    { name: "{{BRIDESMAID_5_NAME}}", role: "Bridesmaid", side: "Maria", bio: "Sister of the bride" }
   ],
 
   travel: [
-    { title: "Getting there", text: "MCI Airport is 18 miles (~25 minutes from the church" },
+    { title: "Getting there", text: "MCI Airport is 18 miles (~25 minutes from the church)" },
     { title: "Where to stay", text: "{{HOTEL_NAME_BLOCK_CODE_AND_BOOKING_DEADLINE}}", url: "{{HOTEL_BOOKING_URL}}", link: "Book a room" },
-    { title: "Parking", text: "{{PARKING_AT_CHURCH_AND_PARK}}" }
+    { title: "Parking", text: "The church lot is onsite" }
   ],
 
   faqs: [
-    { q: "What should I wear?", a: "{{DRESS_CODE_AND_OUTDOOR_RECEPTION_NOTES}}" },
-    { q: "Can I bring a guest?", a: "{{PLUS_ONE_POLICY}}" },
-    { q: "Can I use my phone to take pictures?", a: "{{PHOTO_POLICY}}" },
+    { q: "What should I wear?", a: "We kindly request formal attire for our wedding. For gentlemen, this entails a traditional suit and tie or a tuxedo. For ladies, we request a floor-length gown or an elegant, formal cocktail dress. As we will be celebrating a Nuptial Mass in a Catholic church, we respectfully ask that attire remain modest and appropriate for a sacred space, with shoulders and knees covered during the ceremony." },
+    { q: "Can I bring a guest?", a: "Due to space limitations at our venue, we are only able to accommodate the guests officially listed on your invitation envelope. We appreciate your understanding and can't wait to celebrate with you!" },
+    { q: "Can I use my phone to take pictures?", a: "Yes! Scan the QR code in your program to instantly share your favorite moments and photos with us!" },
     { q: "What if I have any dietary restrictions?", a: "Tell us in your RSVP and we'll make sure you're covered." }
   ],
 
   registry: [
-    { name: "{{REGISTRY_1_NAME}}", url: "{{REGISTRY_1_URL}}" },
-    { name: "{{REGISTRY_2_NAME}}", url: "{{REGISTRY_2_URL}}" }
+    { name: "Amazon", url: "{{REGISTRY_1_URL}}" },
+    { name: "Crate & Barrel", url: "{{REGISTRY_2_URL}}" }
   ],
   registryNote: "{{REGISTRY_OR_GIFT_MESSAGE}}",
 
