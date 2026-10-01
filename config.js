@@ -7,12 +7,6 @@ const SITE = {
   city: "Kansas City, Missouri",
   hashtag: "#deerqueen",
 
-  story: [
-    "Met at retreat blah blah blah",
-    "First date went to the Roasterie downtown and the WW1 Memorial",
-    "{{THE_PROPOSAL_STORY}}"
-  ],
-
   events: [
     { when: "Friday, May 21 · 4:00 PM", title: "Rehearsal and dinner", place: "Old St. Patrick's Oratory + Christus Rex Center", address: "Kansas City, Missouri", map: "Old St. Patrick's Oratory Kansas City", note: "Wedding party and immediate family. {{DINNER_INVITE_DETAILS}}" },
     { when: "Saturday, May 22 · 11:00 AM", title: "Ceremony", place: "Old St. Patrick's Oratory", address: "Kansas City, Missouri", map: "Old St. Patrick's Oratory Kansas City", note: "{{CEREMONY_ARRIVAL_AND_PARKING_NOTES}}", main: true },
@@ -21,15 +15,15 @@ const SITE = {
 
   party: [
     { name: "{{BEST_MAN_NAME}}", role: "Best Man", side: "Daniel", bio: "{{ONE_LINE_BIO}}" },
-    { name: "{{GROOMSMAN_1_NAME}}", role: "Groomsman", side: "Daniel", bio: "{{ONE_LINE_BIO}}" },
     { name: "{{GROOMSMAN_2_NAME}}", role: "Groomsman", side: "Daniel", bio: "{{ONE_LINE_BIO}}" },
-    { name: "{{GROOMSMAN_2_NAME}}", role: "Groomsman", side: "Daniel", bio: "{{ONE_LINE_BIO}}" },
-    { name: "{{GROOMSMAN_2_NAME}}", role: "Groomsman", side: "Daniel", bio: "{{ONE_LINE_BIO}}" },
+    { name: "{{GROOMSMAN_3_NAME}}", role: "Groomsman", side: "Daniel", bio: "{{ONE_LINE_BIO}}" },
+    { name: "{{GROOMSMAN_4_NAME}}", role: "Groomsman", side: "Daniel", bio: "{{ONE_LINE_BIO}}" },
+    { name: "{{GROOMSMAN_5_NAME}}", role: "Groomsman", side: "Daniel", bio: "{{ONE_LINE_BIO}}" },
     { name: "{{MAID_OF_HONOR_NAME}}", role: "Maid of Honor", side: "Maria", bio: "{{ONE_LINE_BIO}}" },
-    { name: "{{BRIDESMAID_1_NAME}}", role: "Bridesmaid", side: "Maria", bio: "{{ONE_LINE_BIO}}" },
-    { name: "{{BRIDESMAID_1_NAME}}", role: "Bridesmaid", side: "Maria", bio: "{{ONE_LINE_BIO}}" },
-    { name: "{{BRIDESMAID_1_NAME}}", role: "Bridesmaid", side: "Maria", bio: "{{ONE_LINE_BIO}}" },
-    { name: "{{BRIDESMAID_2_NAME}}", role: "Bridesmaid", side: "Maria", bio: "{{ONE_LINE_BIO}}" }
+    { name: "{{BRIDESMAID_2_NAME}}", role: "Bridesmaid", side: "Maria", bio: "{{ONE_LINE_BIO}}" },
+    { name: "{{BRIDESMAID_3_NAME}}", role: "Bridesmaid", side: "Maria", bio: "{{ONE_LINE_BIO}}" },
+    { name: "{{BRIDESMAID_4_NAME}}", role: "Bridesmaid", side: "Maria", bio: "{{ONE_LINE_BIO}}" },
+    { name: "{{BRIDESMAID_5_NAME}}", role: "Bridesmaid", side: "Maria", bio: "{{ONE_LINE_BIO}}" }
   ],
 
   travel: [
