@@ -442,7 +442,7 @@
     const nav = []; const add = (id, label) => nav.push([id, label]);
 
     // Story
-    sec("story", "Our story", el("div", { class: "prose" }, S.story.map(p => el("p", {}, T(p))))); add("story", "Story");
+    //sec("story", "Our story", el("div", { class: "prose" }, S.story.map(p => el("p", {}, T(p))))); add("story", "Story");
 
     // Schedule
     sec("details", "The weekend", el("ol", { class: "schedule" }, S.events.map(e => el("li", { class: e.main ? "main" : "" },
