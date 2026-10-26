@@ -398,6 +398,13 @@
         scroll-behavior: auto
       }
     }
+    .top:empty { display: none }
+    .gate { text-align: center }
+    .gate p { max-width: 30rem; margin: 0 auto 1.2rem }
+    .gate form { display: flex; gap: .6rem; justify-content: center; flex-wrap: wrap }
+    .gate input { font: inherit; padding: .75rem 1rem; border: 1px solid var(--sea); background: #fff; border-radius: 2px; min-width: 15rem }
+    .gate button { font: inherit; border: 0; cursor: pointer; margin: 0 }
+    .err { color: var(--brick); min-height: 1.6em; margin-top: .8rem; font-weight: 500 }
   </style>
 </head>
 
@@ -416,7 +423,8 @@
   <footer id="foot"></footer>
   <dialog id="lb"><img alt=""><button>Close</button></dialog>
 
-  <script src="config.js"></script>
+  <script src="site-public.js"></script>
+  <script src="site.enc.js" onerror="window.ENC_MISSING=true"></script>
   <script>
     const $ = (s) => document.querySelector(s);
     function el(tag, attrs = {}, ...kids) {
@@ -431,66 +439,16 @@
       }); return f
     }
     const ok = u => u && !u.includes("{{");
-    const S = SITE, maps = q => "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(q);
+    const maps = q => "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(q);
+    const P = SITE_PUBLIC;
 
-    $("#names").append(S.bride, el("i", {}, "and"), S.groom);
-    $("#full").textContent = S.brideFull + " and " + S.groomFull;
-    $("#date").textContent = S.dateLabel + " · " + S.timeLabel;
-    $("#foot").textContent = S.bride + " & " + S.groom + " · " + S.dateLabel + " · " + S.hashtag;
+    // ---- Public title splash ----
+    $("#names").append(P.bride, el("i", {}, "and"), P.groom);
+    $("#full").textContent = P.brideFull + " and " + P.groomFull;
+    $("#date").textContent = P.dateLabel + " · " + P.timeLabel;
+    $("#foot").textContent = P.bride + " & " + P.groom + " · " + P.dateLabel + " · " + P.hashtag;
 
-    const sec = (id, title, body, cls = "") => { const s = el("section", { id, class: cls }, el("h2", {}, title), body); $("#main").append(s); return s };
-    const nav = []; const add = (id, label) => nav.push([id, label]);
-
-    // Story
-    //sec("story", "Our story", el("div", { class: "prose" }, S.story.map(p => el("p", {}, T(p))))); add("story", "Story");
-
-    // Schedule
-    sec("details", "The weekend", el("ol", { class: "schedule" }, S.events.map(e => el("li", { class: e.main ? "main" : "" },
-      el("span", { class: "when" }, T(e.when)), el("h3", {}, e.title),
-      e.map ? el("a", { href: maps(e.map) }, e.place) : T(e.place), ", ", T(e.address),
-      el("small", {}, T(e.note)))))); add("details", "Details");
-
-    // Wedding party
-    const pb = el("div");
-    ["Maria", "Daniel"].forEach(side => {
-      const m = S.party.filter(p => p.side === side); if (!m.length) return;
-      pb.append(el("p", { class: "side" }, side + "'s side"), el("div", { class: "party" }, m.map(p => el("div", {},
-        el("h3", {}, T(p.name)), el("div", { class: "role" }, p.role), el("p", {}, T(p.bio))))))
-    });
-    sec("party", "Wedding party", pb); add("party", "Party");
-
-    // Travel
-    sec("travel", "Travel and stay", el("div", { class: "tiles" }, S.travel.map(t => el("div", {}, el("h3", {}, t.title), el("p", {}, T(t.text)),
-      t.url ? (ok(t.url) ? el("a", { href: t.url }, t.link) : el("span", { class: "todo" }, t.url)) : "")))); add("travel", "Travel");
-
-    // FAQ
-    sec("faq", "Questions", el("div", {}, S.faqs.map(f => el("details", {}, el("summary", {}, f.q), el("p", {}, T(f.a)))))); add("faq", "FAQ");
-
-    // Photos
-    const strip = el("div", { class: "strip" }, S.photos.map(p => {
-      const i = el("img", { src: p.src, alt: p.alt, loading: "lazy" });
-      const b = el("button", { "aria-label": "Enlarge photo: " + p.alt }, i); b.onclick = () => { const d = $("#lb"); d.querySelector("img").src = p.src; d.querySelector("img").alt = p.alt; d.showModal() }; return b
-    }));
-    sec("photos", "Photos", strip, "wide"); add("photos", "Photos");
-    $("#lb").onclick = e => { if (e.target.id === "lb" || e.target.tagName === "BUTTON") $("#lb").close() };
-
-    // Registry
-    const rb = el("div", {}, el("p", {}, T(S.registryNote)), S.registry.map(r => ok(r.url) ? el("a", { class: "btn", href: r.url }, r.name) : el("span", { class: "btn todo" }, r.name + " " + r.url)));
-    sec("registry", "Registry", rb); add("registry", "Registry");
-
-    // RSVP
-    const R = S.rsvp;
-    const rsvp = el("section", { id: "rsvp", class: "dark" }, el("div", {}, el("h2", {}, "RSVP"),
-      el("p", {}, "Please reply by ", T(R.deadline), ". Include your meal and dietary needs."),
-      ok(R.formUrl) && R.formUrl ? el("a", { class: "btn", href: R.formUrl }, "Open RSVP form") : "",
-      ok(R.email) ? el("a", { class: "btn", href: "mailto:" + R.email + "?subject=RSVP%20-%20" + encodeURIComponent(S.dateLabel) }, "Reply by email") : el("p", {}, "Email: ", T(R.email)),
-      el("p", {}, "Questions? ", T(R.phone))));
-    $("#main").append(rsvp); add("rsvp", "RSVP");
-
-    nav.forEach(([id, l]) => $("#nav").append(el("a", { href: "#" + id }, l)));
-
-    // Countdown
-    const target = new Date(S.dateISO).getTime();
+    const target = new Date(P.dateISO).getTime();
     function tick() {
       const ms = target - Date.now(); const c = $("#count");
       if (ms <= 0) { c.textContent = "Today is the day."; return }
@@ -498,6 +456,91 @@
       c.replaceChildren(...[[d, "days"], [h, "hours"], [m, "minutes"]].map(([n, l]) => el("div", {}, String(n), el("small", {}, l))))
     }
     tick(); setInterval(tick, 30000);
+
+    // ---- Password gate ----
+    const un = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
+    async function decrypt(pw) {
+      const base = await crypto.subtle.importKey("raw", new TextEncoder().encode(pw), "PBKDF2", false, ["deriveKey"]);
+      const key = await crypto.subtle.deriveKey({ name: "PBKDF2", salt: un(ENC.s), iterations: 600000, hash: "SHA-256" }, base, { name: "AES-GCM", length: 256 }, false, ["decrypt"]);
+      const pt = await crypto.subtle.decrypt({ name: "AES-GCM", iv: un(ENC.i) }, key, un(ENC.c));
+      return JSON.parse(new TextDecoder().decode(pt));
+    }
+    function showGate() {
+      const msg = el("p", { class: "err", role: "alert" });
+      const input = el("input", { type: "password", id: "pw", placeholder: "Password", autocomplete: "current-password", "aria-label": "Password" });
+      const btn = el("button", { class: "btn", type: "submit" }, "Enter");
+      const form = el("form", {}, input, btn);
+      form.onsubmit = async e => {
+        e.preventDefault(); msg.textContent = ""; btn.disabled = true; btn.textContent = "Checking...";
+        try {
+          const data = await decrypt(input.value);
+          try { localStorage.setItem("wpw", input.value) } catch (_) { }
+          render(data);
+        } catch (_) {
+          msg.textContent = "That password didn't work. Check your invitation and try again.";
+          btn.disabled = false; btn.textContent = "Enter";
+        }
+      };
+      $("#main").replaceChildren(el("section", { id: "gate", class: "gate" },
+        el("h2", {}, "Welcome"),
+        el("p", {}, "Enter the password from your invitation to see the details, photos, registry and RSVP."),
+        form, msg));
+    }
+    async function start() {
+      if (window.ENC_MISSING || typeof ENC === "undefined" || !window.crypto || !crypto.subtle) {
+        $("#main").replaceChildren(el("section", { class: "gate" }, el("p", {}, "More details are coming soon.")));
+        return;
+      }
+      let saved = null; try { saved = localStorage.getItem("wpw") } catch (_) { }
+      if (saved) { try { render(await decrypt(saved)); return } catch (_) { try { localStorage.removeItem("wpw") } catch (_) { } } }
+      showGate();
+    }
+
+    // ---- Private content, built only after unlock ----
+    function render(S) {
+      $("#main").replaceChildren(); $("#nav").replaceChildren();
+      const sec = (id, title, body, cls = "") => { const s = el("section", { id, class: cls }, el("h2", {}, title), body); $("#main").append(s); return s };
+      const nav = []; const add = (id, label) => nav.push([id, label]);
+
+      sec("details", "The weekend", el("ol", { class: "schedule" }, S.events.map(e => el("li", { class: e.main ? "main" : "" },
+        el("span", { class: "when" }, T(e.when)), el("h3", {}, e.title),
+        e.map ? el("a", { href: maps(e.map) }, e.place) : T(e.place), ", ", T(e.address),
+        el("small", {}, T(e.note)))))); add("details", "Details");
+
+      const pb = el("div");
+      ["Maria", "Daniel"].forEach(side => {
+        const m = S.party.filter(p => p.side === side); if (!m.length) return;
+        pb.append(el("p", { class: "side" }, side + "'s side"), el("div", { class: "party" }, m.map(p => el("div", {},
+          el("h3", {}, T(p.name)), el("div", { class: "role" }, p.role), el("p", {}, T(p.bio))))))
+      });
+      sec("party", "Wedding party", pb); add("party", "Party");
+
+      sec("travel", "Travel and stay", el("div", { class: "tiles" }, S.travel.map(t => el("div", {}, el("h3", {}, t.title), el("p", {}, T(t.text)),
+        t.url ? (ok(t.url) ? el("a", { href: t.url }, t.link) : el("span", { class: "todo" }, t.url)) : "")))); add("travel", "Travel");
+
+      sec("faq", "Questions", el("div", {}, S.faqs.map(f => el("details", {}, el("summary", {}, f.q), el("p", {}, T(f.a)))))); add("faq", "FAQ");
+
+      const strip = el("div", { class: "strip" }, S.photos.map(p => {
+        const i = el("img", { src: p.src, alt: p.alt, loading: "lazy" });
+        const b = el("button", { "aria-label": "Enlarge photo: " + p.alt }, i); b.onclick = () => { const d = $("#lb"); d.querySelector("img").src = p.src; d.querySelector("img").alt = p.alt; d.showModal() }; return b
+      }));
+      sec("photos", "Photos", strip, "wide"); add("photos", "Photos");
+      $("#lb").onclick = e => { if (e.target.id === "lb" || e.target.tagName === "BUTTON") $("#lb").close() };
+
+      const rb = el("div", {}, el("p", {}, T(S.registryNote)), S.registry.map(r => ok(r.url) ? el("a", { class: "btn", href: r.url }, r.name) : el("span", { class: "btn todo" }, r.name + " " + r.url)));
+      sec("registry", "Registry", rb); add("registry", "Registry");
+
+      const R = S.rsvp;
+      $("#main").append(el("section", { id: "rsvp", class: "dark" }, el("div", {}, el("h2", {}, "RSVP"),
+        el("p", {}, "Please reply by ", T(R.deadline), ". Include your meal and dietary needs."),
+        ok(R.formUrl) && R.formUrl ? el("a", { class: "btn", href: R.formUrl }, "Open RSVP form") : "",
+        ok(R.email) ? el("a", { class: "btn", href: "mailto:" + R.email + "?subject=RSVP%20-%20" + encodeURIComponent(P.dateLabel) }, "Reply by email") : el("p", {}, "Email: ", T(R.email)),
+        el("p", {}, "Questions? ", T(R.phone)))));
+      add("rsvp", "RSVP");
+
+      nav.forEach(([id, l]) => $("#nav").append(el("a", { href: "#" + id }, l)));
+    }
+    start();
   </script>
 </body>
 
