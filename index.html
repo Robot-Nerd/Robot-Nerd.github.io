@@ -3,415 +3,165 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Maria &amp; Daniel · May 22, 2027</title>
-  <meta name="description"
-    content="Maria Clarke and Daniel Dierking are getting married May 22, 2027 at Old St. Patrick's Oratory in Kansas City.">
+  <meta name="description" content="Maria Clarke and Daniel Dierking are getting married May 22, 2027 in Kansas City.">
+  <meta name="theme-color" content="#1d2f3f">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@400;500&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>document.documentElement.className = "js"</script>
   <style>
     :root {
-      --sand: #F3F5F2;
-      --sea: #2B4257;
-      --sky: #C7DAE8;
-      --brick: #9A2E2A;
-      --ink: #1E2A33;
-      --mute: #56666f;
+      --bg: #fbfbf9;
+      --ink: #1d1d1f;
+      --mute: #6e6e73;
+      --night: #1d2f3f;
+      --sky: #cfe0ec;
+      --brick: #a6322d;
+      --line: #e3e3df;
       --serif: "Cormorant Garamond", Georgia, serif;
-      --sans: "Jost", system-ui, sans-serif
+      --sans: "Jost", system-ui, -apple-system, sans-serif
     }
+    * { box-sizing: border-box; margin: 0 }
+    html { scroll-behavior: smooth; scroll-padding-top: 3.5rem; -webkit-text-size-adjust: 100% }
+    body { background: var(--bg); color: var(--ink); font: 400 1.1rem/1.6 var(--sans); overflow-x: hidden }
+    a { color: var(--brick) }
+    img { display: block; max-width: 100% }
+    :focus-visible { outline: 3px solid var(--brick); outline-offset: 3px }
+    .todo { background: #fff3c4; color: #1d1d1f; border-bottom: 2px dashed #c79a00; overflow-wrap: anywhere }
 
-    * {
-      box-sizing: border-box;
-      margin: 0
-    }
+    /* ---------- reveal on scroll ---------- */
+    .js .rv { opacity: 0; transform: translateY(28px); transition: opacity .9s ease, transform .9s cubic-bezier(.2, .7, .2, 1) }
+    .js .rv.in { opacity: 1; transform: none }
+    .js .rv.d1 { transition-delay: .12s } .js .rv.d2 { transition-delay: .24s }
 
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 4rem
-    }
-
-    body {
-      background: var(--sand);
-      color: var(--ink);
-      font: 400 1.05rem/1.65 var(--sans)
-    }
-
-    a {
-      color: var(--brick)
-    }
-
-    img {
-      display: block;
-      max-width: 100%
-    }
-
-    :focus-visible {
-      outline: 3px solid var(--brick);
-      outline-offset: 3px
-    }
-
-    .todo {
-      background: #fff3c4;
-      border-bottom: 2px dashed #c79a00
-    }
-
-    .top {
-      position: sticky;
-      top: 0;
-      z-index: 5;
-      background: rgba(243, 245, 242, .94);
-      backdrop-filter: blur(6px);
-      display: flex;
-      gap: 1.1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      padding: .8rem 1rem;
-      border-bottom: 1px solid var(--sky)
-    }
-
-    .top a {
-      text-decoration: none;
-      color: var(--sea);
-      font-weight: 500;
-      font-size: .95rem
-    }
-
-    .top a:hover {
-      color: var(--brick)
-    }
-
-    .hero {
-      display: grid;
-      min-height: calc(100vh - 3rem)
-    }
-
-    .hero img {
-      width: 100%;
-      height: 58vh;
-      object-fit: cover;
-      object-position: 50% 62%
-    }
-
-    .hero-text {
-      background: var(--sea);
-      color: var(--sand);
-      padding: 2.5rem 1.5rem 3rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center
-    }
-
-    .hero h1 {
-      font: 500 clamp(3.4rem, 12vw, 7rem)/.92 var(--serif);
-      letter-spacing: -.01em
-    }
-
-    .hero h1 i {
-      display: block;
-      font-weight: 400;
-      font-size: .42em;
-      margin: .2em 0;
-      color: var(--sky)
-    }
-
-    .full {
-      color: var(--sky);
-      margin-top: 1rem;
-      font-size: .95rem
-    }
-
-    .date {
-      font: 500 1.7rem/1.2 var(--serif);
-      margin-top: 1.5rem
-    }
-
-    .count {
-      display: flex;
-      gap: 1.4rem;
-      margin-top: 1.5rem
-    }
-
-    .count div {
-      font: 500 2.4rem/1 var(--serif)
-    }
-
-    .count small {
-      display: block;
-      font: 400 .8rem var(--sans);
-      color: var(--sky)
-    }
-
-    @media(min-width:820px) {
-      .hero {
-        grid-template-columns: 5fr 6fr
-      }
-
-      .hero img {
-        height: calc(100vh - 3rem);
-        position: sticky;
-        top: 3rem
-      }
-
-      .hero-text {
-        padding: 4rem 5vw
-      }
-    }
-
-    section {
-      padding: 4.5rem 1.5rem;
-      max-width: 62rem;
-      margin: 0 auto
-    }
-
-    h2 {
-      font: 500 clamp(2.1rem, 6vw, 3.2rem)/1.1 var(--serif);
-      color: var(--sea);
-      margin-bottom: 1.2rem
-    }
-
-    .prose p {
-      max-width: 38rem;
-      margin-bottom: 1rem;
-      font-size: 1.12rem
-    }
-
-    .schedule {
-      list-style: none;
-      padding: 0;
-      border-left: 2px solid var(--sky);
-      margin-left: .4rem
-    }
-
-    .schedule li {
-      position: relative;
-      padding: 0 0 2.5rem 1.75rem
-    }
-
-    .schedule li::before {
-      content: "";
-      position: absolute;
-      left: -.55rem;
-      top: .45rem;
-      width: .9rem;
-      height: .9rem;
-      border-radius: 50%;
-      background: var(--sand);
-      border: 2px solid var(--brick)
-    }
-
-    .schedule .main::before {
-      background: var(--brick)
-    }
-
-    .when {
-      font-weight: 500;
-      color: var(--brick)
-    }
-
-    .schedule h3 {
-      font: 600 1.8rem/1.2 var(--serif);
-      color: var(--sea)
-    }
-
-    .schedule small {
-      display: block;
-      color: var(--mute)
-    }
-
-    .party {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-      gap: 2rem 2.5rem
-    }
-
-    .party h3 {
-      font: 600 1.5rem/1.2 var(--serif);
-      color: var(--sea)
-    }
-
-    .party .role {
-      color: var(--brick);
-      font-weight: 500;
-      font-size: .95rem
-    }
-
-    .party p {
-      color: var(--mute);
-      margin-top: .3rem
-    }
-
-    .side {
-      margin: 2rem 0 1rem;
-      font: italic 1.6rem var(--serif)
-    }
-
-    .tiles {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-      gap: 2rem
-    }
-
-    .tiles h3 {
-      font: 600 1.5rem var(--serif);
-      color: var(--sea);
-      margin-bottom: .3rem
-    }
-
-    details {
-      border-top: 1px solid var(--sky);
-      padding: 1rem 0
-    }
-
-    details:last-child {
-      border-bottom: 1px solid var(--sky)
-    }
-
-    summary {
-      cursor: pointer;
-      font: 600 1.35rem var(--serif);
-      color: var(--sea)
-    }
-
-    details p {
-      margin-top: .6rem;
-      max-width: 38rem
-    }
-
-    .wide {
-      max-width: none;
-      padding-left: 0;
-      padding-right: 0
-    }
-
-    .wide>h2 {
-      max-width: 62rem;
-      margin: 0 auto 1.2rem;
-      padding: 0 1.5rem
-    }
-
-    .strip {
-      display: flex;
-      gap: .75rem;
-      overflow-x: auto;
-      padding: 0 1.5rem;
-      scroll-snap-type: x mandatory
-    }
-
-    .strip button {
-      all: unset;
-      cursor: zoom-in;
-      flex: none;
-      scroll-snap-align: center
-    }
-
-    .strip img {
-      height: 26rem;
-      width: auto
-    }
-
-    @media(min-width:820px) {
-      .strip {
-        flex-wrap: wrap;
-        justify-content: center;
-        overflow: visible
-      }
-
-      .strip img {
-        height: 21rem
-      }
-    }
-
-    dialog {
-      border: 0;
-      padding: 0;
-      background: none;
-      max-width: 95vw;
-      max-height: 95vh;
-      margin: auto
-    }
-
-    dialog::backdrop {
-      background: rgba(20, 30, 38, .88)
-    }
-
-    dialog img {
-      max-height: 90vh;
-      margin: 0 auto
-    }
-
-    dialog button {
-      display: block;
-      margin: .6rem auto 0;
-      padding: .5rem 1.2rem;
-      font: inherit;
-      cursor: pointer
-    }
-
-    .dark {
-      background: var(--sea);
-      color: var(--sand);
-      max-width: none
-    }
-
-    .dark>div {
-      max-width: 62rem;
-      margin: 0 auto
-    }
-
-    .dark h2 {
-      color: var(--sand)
-    }
-
-    .dark a.btn {
-      background: var(--sand);
-      color: var(--sea)
-    }
-
-    .btn {
-      display: inline-block;
-      margin: .8rem .8rem 0 0;
-      padding: .85rem 1.7rem;
-      background: var(--brick);
-      color: #fff;
-      font-weight: 500;
-      text-decoration: none;
-      border-radius: 2px
-    }
-
-    .btn:hover {
-      filter: brightness(1.12)
-    }
-
-    footer {
-      text-align: center;
-      padding: 2.5rem 1.5rem;
-      color: var(--mute);
-      font: italic 1.25rem var(--serif)
-    }
-
-    @media(prefers-reduced-motion:reduce) {
-      html {
-        scroll-behavior: auto
-      }
-    }
+    /* ---------- frosted nav ---------- */
+    .top { position: fixed; inset: 0 0 auto 0; z-index: 20; height: 3rem; display: flex; align-items: center; justify-content: center; gap: 1.6rem; padding: 0 1rem;
+      background: rgba(20, 30, 40, .62); -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px); overflow-x: auto; white-space: nowrap }
     .top:empty { display: none }
-    .gate { text-align: center }
-    .gate p { max-width: 30rem; margin: 0 auto 1.2rem }
+    .top a { color: rgba(255, 255, 255, .82); text-decoration: none; font-size: .88rem; font-weight: 500; letter-spacing: .02em }
+    .top a:hover { color: #fff }
+
+    /* ---------- hero (public) ---------- */
+    .hero { position: relative; min-height: 100vh; min-height: 100svh; background: var(--night); color: #fff; overflow: hidden; display: flex; align-items: flex-end }
+    .hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 58%;
+      -webkit-mask-image: linear-gradient(to bottom, #000 52%, transparent 96%); mask-image: linear-gradient(to bottom, #000 52%, transparent 96%);
+      animation: settle 2.2s cubic-bezier(.2, .7, .2, 1) both }
+    @keyframes settle { from { transform: scale(1.08); opacity: .4 } to { transform: none; opacity: 1 } }
+    .hero-text { position: relative; width: 100%; padding: 0 1.5rem 3.5rem; max-width: 80rem; margin: 0 auto }
+    .hero h1 { font: 500 clamp(3.6rem, 15vw, 9.5rem)/.9 var(--serif); letter-spacing: -.02em }
+    .hero h1 i { display: inline-block; font-weight: 400; font-size: .5em; margin: 0 .25em; color: var(--sky) }
+    .full { color: var(--sky); margin-top: 1.1rem; font-size: .95rem; letter-spacing: .08em; text-transform: uppercase }
+    .date { font: 600 clamp(1.3rem, 3.4vw, 1.8rem)/1.2 var(--sans); margin-top: 1.4rem; letter-spacing: -.01em }
+    .count { display: flex; gap: 1.8rem; margin-top: 1.1rem }
+    .count div { font: 600 clamp(2rem, 6vw, 3.2rem)/1 var(--sans); letter-spacing: -.03em; font-variant-numeric: tabular-nums }
+    .count small { display: block; font: 500 .75rem var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--sky); margin-top: .35rem }
+    @media (min-width: 820px) {
+      .hero { align-items: center }
+      .hero-img { left: auto; right: 0; width: 66%; object-position: 50% 56%;
+        -webkit-mask-image: linear-gradient(to right, transparent 0, #000 42%); mask-image: linear-gradient(to right, transparent 0, #000 42%) }
+      .hero-text { padding: 0 5vw; max-width: none; margin: 0 }
+      .hero-text > * { max-width: 44rem }
+      .hero h1 i { display: block; margin: .05em 0 }
+    }
+
+    /* ---------- gate ---------- */
+    .gate { padding: 7rem 1.5rem; text-align: center; background: var(--bg) }
+    .gate h2 { margin-bottom: 1rem }
+    .gate p { max-width: 30rem; margin: 0 auto 1.6rem; color: var(--mute) }
     .gate form { display: flex; gap: .6rem; justify-content: center; flex-wrap: wrap }
-    .gate input { font: inherit; padding: .75rem 1rem; border: 1px solid var(--sea); background: #fff; border-radius: 2px; min-width: 15rem }
-    .gate button { font: inherit; border: 0; cursor: pointer; margin: 0 }
-    .err { color: var(--brick); min-height: 1.6em; margin-top: .8rem; font-weight: 500 }
+    .gate input { font: inherit; padding: .85rem 1.2rem; border: 1px solid #c9c9c4; background: #fff; border-radius: 980px; min-width: 16rem; text-align: center }
+    .err { color: var(--brick); min-height: 1.6em; margin-top: 1rem; font-weight: 500 }
+
+    /* ---------- shared type ---------- */
+    .wrap { max-width: 68rem; margin: 0 auto; padding: 0 1.5rem }
+    .pad { padding: 7rem 0 }
+    h2 { font: 600 clamp(2.6rem, 8vw, 5.2rem)/1.02 var(--sans); letter-spacing: -.035em }
+    .eyebrow { font: 500 .8rem var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--brick); margin-bottom: 1rem }
+    .btn { display: inline-block; margin: .9rem .8rem 0 0; padding: .85rem 1.8rem; background: var(--brick); color: #fff; font-weight: 500; text-decoration: none; border-radius: 980px; font-size: 1.02rem }
+    .btn:hover { filter: brightness(1.1) }
+    .btn.light { background: #fff; color: var(--night) }
+
+    /* ---------- full-bleed parallax images ---------- */
+    .bleed { position: relative; overflow: hidden; background: var(--night) }
+    .px { position: absolute; left: 0; top: -9%; width: 100%; height: 118%; object-fit: cover; will-change: transform }
+    .scrim { position: absolute; inset: 0; background: linear-gradient(to top, rgba(10, 18, 26, .72), rgba(10, 18, 26, .0) 62%) }
+    .banner { height: 88vh; height: 88svh; min-height: 30rem; color: #fff; display: flex; align-items: flex-end }
+    .banner .wrap { position: relative; width: 100%; padding-bottom: 4rem }
+    .pause { height: 100vh; height: 100svh }
+
+    /* ---------- timeline ---------- */
+    .event { display: grid; min-width: 0; gap: .4rem 3rem; padding: 2.4rem 0; border-top: 1px solid var(--line) }
+    .event:last-child { border-bottom: 1px solid var(--line) }
+    .when { font: 600 1.05rem var(--sans); color: var(--brick); letter-spacing: .01em }
+    .event h3 { font: 600 clamp(1.8rem, 4vw, 2.6rem)/1.1 var(--sans); letter-spacing: -.025em }
+    .event p { color: var(--mute) }
+    @media (min-width: 820px) { .event { grid-template-columns: 16rem 1fr; align-items: baseline } }
+
+    /* ---------- sticky split ---------- */
+    .split { display: grid; grid-template-columns: minmax(0, 1fr) }
+    .split > * { min-width: 0 }
+    .split .fig { position: relative; height: 72vh; overflow: hidden; background: var(--night) }
+    .split .fig img { width: 100%; height: 100%; object-fit: cover }
+    .split .body { padding: 5rem 1.5rem 6rem }
+    @media (min-width: 900px) {
+      .split { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) }
+      .split .fig { position: sticky; top: 0; height: 100vh; height: 100svh }
+      .split.flip .fig { order: 2 }
+      .split .body { padding: 9rem 5vw 9rem; max-width: 40rem }
+      .split.flip .body { margin-left: auto }
+    }
+    .side { font: italic 500 1.8rem var(--serif); margin: 2.6rem 0 1rem; color: var(--night) }
+    .side:first-of-type { margin-top: 2rem }
+    .person { padding: 1rem 0; border-top: 1px solid var(--line) }
+    .person h3 { font: 600 1.35rem var(--sans); letter-spacing: -.01em }
+    .person .role { color: var(--brick); font-size: .9rem; font-weight: 500 }
+    .person p { color: var(--mute); font-size: .98rem }
+    .tile { padding: 1.4rem 0; border-top: 1px solid var(--line) }
+    .tile h3 { font: 600 1.5rem var(--sans); letter-spacing: -.02em; margin-bottom: .2rem }
+    .tile p { color: var(--mute) }
+    details { border-top: 1px solid var(--line); padding: 1.1rem 0 }
+    details:last-child { border-bottom: 1px solid var(--line) }
+    summary { cursor: pointer; font: 600 1.3rem/1.3 var(--sans); letter-spacing: -.015em; list-style: none; display: flex; justify-content: space-between; gap: 1rem }
+    summary::-webkit-details-marker { display: none }
+    summary::after { content: "+"; color: var(--brick); font-weight: 500; transition: transform .25s }
+    details[open] summary::after { transform: rotate(45deg) }
+    details p { margin-top: .7rem; color: var(--mute) }
+
+    /* ---------- triptych ---------- */
+    .tri { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; height: 78vh; height: 78svh; background: var(--bg) }
+    .tri div { overflow: hidden }
+    .tri img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.6s cubic-bezier(.2, .7, .2, 1) }
+    .js .tri div:not(.in) img { transform: scale(1.12) }
+
+    /* ---------- registry card ---------- */
+    .reg { display: grid; gap: 2.5rem; align-items: center }
+    .reg figure { border-radius: 28px; overflow: hidden; aspect-ratio: 4 / 5; background: var(--night) }
+    .reg img { width: 100%; height: 100%; object-fit: cover }
+    @media (min-width: 820px) { .reg { grid-template-columns: 1fr 1fr; gap: 5rem } }
+
+    /* ---------- rsvp ---------- */
+    .rsvp-img { height: 80vh; height: 80svh; min-height: 24rem }
+    .rsvp-body { background: var(--night); color: #fff; text-align: center; padding: 6rem 1.5rem }
+    .rsvp-body p { max-width: 32rem; margin: 1.2rem auto 0; font-size: 1.2rem }
+
+    footer { background: var(--night); color: var(--sky); text-align: center; padding: 3rem 1.5rem; font: italic 500 1.4rem var(--serif) }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto }
+      .hero-img { animation: none }
+      .js .rv { opacity: 1; transform: none; transition: none }
+      .js .tri div:not(.in) img { transform: none }
+    }
   </style>
 </head>
 
 <body>
   <nav class="top" id="nav" aria-label="Sections"></nav>
+
   <header class="hero">
-    <img src="images/proposal.jpg" alt="Maria smiling as Daniel kneels on a white-sand beach at sunset to propose">
+    <img class="hero-img" src="images/proposal.jpg" alt="Maria smiling as Daniel kneels on a white-sand beach at sunset to propose">
     <div class="hero-text">
       <h1 id="names"></h1>
       <p class="full" id="full"></p>
@@ -419,9 +169,9 @@
       <div class="count" id="count" aria-live="off"></div>
     </div>
   </header>
+
   <main id="main"></main>
   <footer id="foot"></footer>
-  <dialog id="lb"><img alt=""><button>Close</button></dialog>
 
   <script src="site-public.js"></script>
   <script src="site.enc.js" onerror="window.ENC_MISSING=true"></script>
@@ -443,8 +193,8 @@
     const P = SITE_PUBLIC;
 
     // ---- Public title splash ----
-    $("#names").append(P.bride, el("i", {}, "and"), P.groom);
-    $("#full").textContent = P.brideFull + " and " + P.groomFull;
+    $("#names").append(P.bride, el("i", {}, "&"), P.groom);
+    $("#full").textContent = P.brideFull + " & " + P.groomFull;
     $("#date").textContent = P.dateLabel + " · " + P.timeLabel;
     $("#foot").textContent = P.bride + " & " + P.groom + " · " + P.dateLabel + " · " + P.hashtag;
 
@@ -468,7 +218,7 @@
     function showGate() {
       const msg = el("p", { class: "err", role: "alert" });
       const input = el("input", { type: "password", id: "pw", placeholder: "Password", autocomplete: "current-password", "aria-label": "Password" });
-      const btn = el("button", { class: "btn", type: "submit" }, "Enter");
+      const btn = el("button", { class: "btn", type: "submit", style: "border:0;cursor:pointer;margin:0;font:inherit;font-weight:500" }, "Enter");
       const form = el("form", {}, input, btn);
       form.onsubmit = async e => {
         e.preventDefault(); msg.textContent = ""; btn.disabled = true; btn.textContent = "Checking...";
@@ -476,14 +226,15 @@
           const data = await decrypt(input.value);
           try { localStorage.setItem("wpw", input.value) } catch (_) { }
           render(data);
+          scrollTo({ top: innerHeight, behavior: "smooth" });
         } catch (_) {
           msg.textContent = "That password didn't work. Check your invitation and try again.";
           btn.disabled = false; btn.textContent = "Enter";
         }
       };
       $("#main").replaceChildren(el("section", { id: "gate", class: "gate" },
-        el("h2", {}, "Welcome"),
-        el("p", {}, "Enter the password from your invitation to see the details, photos, registry and RSVP."),
+        el("h2", {}, "Join us."),
+        el("p", {}, "Enter the password from your invitation to see the details, registry and RSVP."),
         form, msg));
     }
     async function start() {
@@ -497,49 +248,103 @@
     }
 
     // ---- Private content, built only after unlock ----
+    const pxList = [];
     function render(S) {
-      $("#main").replaceChildren(); $("#nav").replaceChildren();
-      const sec = (id, title, body, cls = "") => { const s = el("section", { id, class: cls }, el("h2", {}, title), body); $("#main").append(s); return s };
-      const nav = []; const add = (id, label) => nav.push([id, label]);
+      const I = S.images || {};
+      const main = $("#main"); main.replaceChildren(); $("#nav").replaceChildren(); pxList.length = 0;
+      const nav = [];
+      const rv = (node, d = 0) => { node.classList.add("rv"); if (d) node.classList.add("d" + d); return node };
+      const img = (i, cls = "") => el("img", { src: i.src, alt: i.alt || "", class: cls, style: "object-position:" + (i.pos || "50% 50%"), loading: "lazy", decoding: "async" });
+      const px = i => { const e = img(i, "px"); pxList.push(e); return e };
 
-      sec("details", "The weekend", el("ol", { class: "schedule" }, S.events.map(e => el("li", { class: e.main ? "main" : "" },
-        el("span", { class: "when" }, T(e.when)), el("h3", {}, e.title),
-        e.map ? el("a", { href: maps(e.map) }, e.place) : T(e.place), ", ", T(e.address),
-        el("small", {}, T(e.note)))))); add("details", "Details");
+      // The weekend: full-bleed banner, then a clean timeline
+      main.append(el("section", { id: "details" },
+        el("div", { class: "bleed banner" }, px(I.details), el("div", { class: "scrim" }),
+          el("div", { class: "wrap" }, rv(el("p", { class: "eyebrow", style: "color:#fff;opacity:.85" }, P.dateLabel)), rv(el("h2", {}, "The weekend."), 1))),
+        el("div", { class: "wrap pad" }, S.events.map((e, n) => rv(el("div", { class: "event" },
+          el("div", { class: "when" }, T(e.when)),
+          el("div", {}, el("h3", {}, e.title),
+            el("p", {}, e.map ? el("a", { href: maps(e.map) }, e.place) : T(e.place), ", ", T(e.address)),
+            el("p", {}, T(e.note)))))))));
+      nav.push(["details", "Details"]);
 
-      const pb = el("div");
+      // Wedding party: sticky photo beside the names
+      const pb = el("div", { class: "body" }, rv(el("p", { class: "eyebrow" }, "The people")), rv(el("h2", {}, "Wedding party."), 1));
       ["Maria", "Daniel"].forEach(side => {
         const m = S.party.filter(p => p.side === side); if (!m.length) return;
-        pb.append(el("p", { class: "side" }, side + "'s side"), el("div", { class: "party" }, m.map(p => el("div", {},
-          el("h3", {}, T(p.name)), el("div", { class: "role" }, p.role), el("p", {}, T(p.bio))))))
+        pb.append(rv(el("p", { class: "side" }, side + "'s side")));
+        m.forEach(p => pb.append(rv(el("div", { class: "person" }, el("h3", {}, T(p.name)), el("div", { class: "role" }, p.role), el("p", {}, T(p.bio))))));
       });
-      sec("party", "Wedding party", pb); add("party", "Party");
+      main.append(el("section", { id: "party", class: "split" }, el("div", { class: "fig" }, img(I.party)), pb));
+      nav.push(["party", "Party"]);
 
-      sec("travel", "Travel and stay", el("div", { class: "tiles" }, S.travel.map(t => el("div", {}, el("h3", {}, t.title), el("p", {}, T(t.text)),
-        t.url ? (ok(t.url) ? el("a", { href: t.url }, t.link) : el("span", { class: "todo" }, t.url)) : "")))); add("travel", "Travel");
+      // A full-screen photo moment, no text
+      main.append(el("div", { class: "bleed pause", role: "img", "aria-label": I.pause.alt }, px(I.pause)));
 
-      sec("faq", "Questions", el("div", {}, S.faqs.map(f => el("details", {}, el("summary", {}, f.q), el("p", {}, T(f.a)))))); add("faq", "FAQ");
+      // Travel
+      main.append(el("section", { id: "travel", class: "split flip" }, el("div", { class: "fig" }, img(I.travel)),
+        el("div", { class: "body" }, rv(el("p", { class: "eyebrow" }, "Getting here")), rv(el("h2", {}, "Travel and stay."), 1),
+          el("div", { style: "margin-top:2.2rem" }, S.travel.map(t => rv(el("div", { class: "tile" }, el("h3", {}, t.title), el("p", {}, T(t.text)),
+            t.url ? (ok(t.url) ? el("a", { href: t.url }, t.link) : el("span", { class: "todo" }, t.url)) : "")))))));
+      nav.push(["travel", "Travel"]);
 
-      const strip = el("div", { class: "strip" }, S.photos.map(p => {
-        const i = el("img", { src: p.src, alt: p.alt, loading: "lazy" });
-        const b = el("button", { "aria-label": "Enlarge photo: " + p.alt }, i); b.onclick = () => { const d = $("#lb"); d.querySelector("img").src = p.src; d.querySelector("img").alt = p.alt; d.showModal() }; return b
-      }));
-      sec("photos", "Photos", strip, "wide"); add("photos", "Photos");
-      $("#lb").onclick = e => { if (e.target.id === "lb" || e.target.tagName === "BUTTON") $("#lb").close() };
+      // FAQ
+      main.append(el("section", { id: "faq", class: "split" }, el("div", { class: "fig" }, img(I.faq)),
+        el("div", { class: "body" }, rv(el("p", { class: "eyebrow" }, "Good to know")), rv(el("h2", {}, "Questions."), 1),
+          el("div", { style: "margin-top:2.2rem" }, S.faqs.map(f => rv(el("details", {}, el("summary", {}, f.q), el("p", {}, T(f.a)))))))));
+      nav.push(["faq", "FAQ"]);
 
-      const rb = el("div", {}, el("p", {}, T(S.registryNote)), S.registry.map(r => ok(r.url) ? el("a", { class: "btn", href: r.url }, r.name) : el("span", { class: "btn todo" }, r.name + " " + r.url)));
-      sec("registry", "Registry", rb); add("registry", "Registry");
+      // Three-up photo moment
+      const tri = el("div", { class: "tri", role: "group", "aria-label": "Photos of Maria and Daniel" }, (I.triptych || []).map((i, n) => el("div", {}, img(i))));
+      main.append(tri);
+      new IntersectionObserver((es, o) => es.forEach(e => { if (e.isIntersecting) { [...tri.children].forEach((c, n) => setTimeout(() => c.classList.add("in"), n * 180)); o.disconnect() } }), { threshold: .25 }).observe(tri);
 
+      // Registry
+      main.append(el("section", { id: "registry", class: "wrap pad" }, el("div", { class: "reg" },
+        rv(el("figure", {}, img(I.registry))),
+        el("div", {}, rv(el("p", { class: "eyebrow" }, "Registry")), rv(el("h2", {}, "A gift, if you wish."), 1),
+          rv(el("p", { style: "margin:1.4rem 0 .4rem;color:var(--mute)" }, T(S.registryNote)), 2),
+          rv(el("div", {}, S.registry.map(r => ok(r.url) ? el("a", { class: "btn", href: r.url }, r.name) : el("span", { class: "btn todo" }, r.name + " " + r.url))), 2)))));
+      nav.push(["registry", "Registry"]);
+
+      // RSVP: full-bleed photo with the details on top
       const R = S.rsvp;
-      $("#main").append(el("section", { id: "rsvp", class: "dark" }, el("div", {}, el("h2", {}, "RSVP"),
-        el("p", {}, "Please reply by ", T(R.deadline), ". Include your meal and dietary needs."),
-        ok(R.formUrl) && R.formUrl ? el("a", { class: "btn", href: R.formUrl }, "Open RSVP form") : "",
-        ok(R.email) ? el("a", { class: "btn", href: "mailto:" + R.email + "?subject=RSVP%20-%20" + encodeURIComponent(P.dateLabel) }, "Reply by email") : el("p", {}, "Email: ", T(R.email)),
-        el("p", {}, "Questions? ", T(R.phone)))));
-      add("rsvp", "RSVP");
+      main.append(el("section", { id: "rsvp" },
+        el("div", { class: "bleed rsvp-img", role: "img", "aria-label": I.rsvp.alt }, px(I.rsvp)),
+        el("div", { class: "rsvp-body" }, rv(el("p", { class: "eyebrow", style: "color:#fff;opacity:.85" }, "Kindly reply by ", T(R.deadline))), rv(el("h2", {}, "RSVP."), 1),
+          rv(el("p", {}, "Include your meal and dietary needs."), 2),
+          rv(el("div", {}, ok(R.formUrl) && R.formUrl ? el("a", { class: "btn light", href: R.formUrl }, "Open RSVP form") : "",
+            ok(R.email) ? el("a", { class: "btn light", href: "mailto:" + R.email + "?subject=RSVP%20-%20" + encodeURIComponent(P.dateLabel) }, "Reply by email") : el("p", {}, "Email: ", T(R.email))), 2),
+          rv(el("p", { style: "font-size:1rem;opacity:.85" }, "Questions? ", T(R.phone)), 2))));
+      nav.push(["rsvp", "RSVP"]);
 
       nav.forEach(([id, l]) => $("#nav").append(el("a", { href: "#" + id }, l)));
+      setupMotion();
     }
+
+    // ---- Motion: reveal on scroll + gentle parallax ----
+    const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let io;
+    function setupMotion() {
+      if (io) io.disconnect();
+      io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target) } }), { threshold: .12, rootMargin: "0px 0px -6% 0px" });
+      document.querySelectorAll(".rv").forEach(n => io.observe(n));
+      onScroll();
+    }
+    let ticking = false;
+    function onScroll() {
+      if (ticking) return; ticking = true;
+      requestAnimationFrame(() => {
+        ticking = false; if (still) return;
+        const vh = innerHeight;
+        pxList.forEach(e => {
+          const r = e.parentElement.getBoundingClientRect();
+          if (r.bottom < -100 || r.top > vh + 100) return;
+          e.style.transform = "translate3d(0," + ((r.top + r.height / 2 - vh / 2) * -.09).toFixed(1) + "px,0)";
+        });
+      });
+    }
+    addEventListener("scroll", onScroll, { passive: true }); addEventListener("resize", onScroll);
     start();
   </script>
 </body>
