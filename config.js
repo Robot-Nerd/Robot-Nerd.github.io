@@ -2,7 +2,8 @@
 const SITE = {
   bride: "Maria", brideFull: "Maria Catherine Clarke",
   groom: "Daniel", groomFull: "Daniel Dean Dierking Jr.",
-  dateISO: "2027-05-22T10:00:00-05:00",
+  dateISO: "2027-05-22T11:00:00-05:00",
+  timeLabel: "11:00 AM",
   dateLabel: "Saturday, May 22, 2027",
   city: "Kansas City, Missouri",
   hashtag: "#deerqueen",
@@ -43,11 +44,19 @@ const SITE = {
     { name: "Amazon", url: "{{REGISTRY_1_URL}}" },
     { name: "Crate & Barrel", url: "{{REGISTRY_2_URL}}" }
   ],
-  registryNote: "{{REGISTRY_OR_GIFT_MESSAGE}}",
+  registryNote: "We are so excited to celebrate with you! If you wish to give a gift, you can view our registry here.",
 
-  rsvp: { deadline: "{{RSVP_DEADLINE}}", formUrl: "{{RSVP_FORM_URL_OR_EMPTY}}", email: "{{CONTACT_EMAIL}}", phone: "{{CONTACT_PHONE_OPTIONAL}}" },
+  rsvp: { deadline: "02/28/2027", formUrl: "{{RSVP_FORM_URL_OR_EMPTY}}", email: "djdierking@outlook.com", phone: "(336) 803-5641" },
 
   photos: [
+    { src: "images/path-walk.jpg", alt: "Maria and Daniel walking hand in hand down a dirt path lined with trees in golden light" },
+    { src: "images/sunset-kiss.jpg", alt: "Daniel and Maria about to kiss, backlit by the setting sun" },
+    { src: "images/sunflare.jpg", alt: "Daniel looking down at Maria as she smiles at the camera, with sun flare behind them" },
+    { src: "images/laughing.jpg", alt: "Maria and Daniel laughing together, close in golden light" },
+    { src: "images/walk-arch.jpg", alt: "Daniel and Maria walking away hand in hand under an arch of trees" },
+    { src: "images/lift.jpg", alt: "Daniel lifting Maria off the ground on a leaf-covered, tree-lined path" },
+    { src: "images/ring-closeup.jpg", alt: "Close-up of Maria smiling, her engagement ring resting on Daniel's arm" },
+    { src: "images/hands.jpg", alt: "Close-up of Maria and Daniel holding hands" },
     { src: "images/embrace.jpg", alt: "Maria and Daniel embracing on the beach, her engagement ring visible" },
     { src: "images/royals.jpg", alt: "Maria and Daniel in Kansas City Royals gear" },
     { src: "images/field.jpg", alt: "Maria and Daniel smiling in front of an open green field" },

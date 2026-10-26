@@ -435,7 +435,7 @@
 
     $("#names").append(S.bride, el("i", {}, "and"), S.groom);
     $("#full").textContent = S.brideFull + " and " + S.groomFull;
-    $("#date").textContent = S.dateLabel + " · 10:00 AM";
+    $("#date").textContent = S.dateLabel + " · " + S.timeLabel;
     $("#foot").textContent = S.bride + " & " + S.groom + " · " + S.dateLabel + " · " + S.hashtag;
 
     const sec = (id, title, body, cls = "") => { const s = el("section", { id, class: cls }, el("h2", {}, title), body); $("#main").append(s); return s };
